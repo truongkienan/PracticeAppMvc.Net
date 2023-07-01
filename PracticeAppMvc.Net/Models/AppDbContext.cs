@@ -17,6 +17,6 @@ namespace PracticeAppMvc.Net.Models
         {
             base.OnModelCreating(modelBuilder);
         }
-
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

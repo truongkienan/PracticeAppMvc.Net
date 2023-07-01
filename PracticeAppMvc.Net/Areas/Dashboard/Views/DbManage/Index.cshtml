@@ -35,7 +35,7 @@
 
 @if (dbContext.Database.GetPendingMigrations().Any())
 {
-    <form method="post" action="/database/dbManage/migrate">
+    <form method="post" action="/dashboard/dbManage/migrate">
         <button class="btn btn-success">Tạo Db (Cập nhật migration)</button>
     </form>
 
@@ -53,7 +53,7 @@
         }
     </ul>
 
-    <a class="btn btn-danger" href="/Database/DbManage/DeleteDb">Xóa Db:  @dbname</a>
+    <a class="btn btn-danger" href="/dashboard/DbManage/DeleteDb">Xóa Db:  @dbname</a>
     <a class="btn btn-danger" asp-action="SeedData">Seed Data</a>
 }
 @*@{

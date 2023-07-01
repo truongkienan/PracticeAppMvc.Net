@@ -7,7 +7,7 @@ using System.Data;
 
 namespace PracticeAppMvc.Net.Areas.Database.Controllers
 {
-    [Area("Database")]
+    [Area("Dashboard")]
     public class DbManageController : Controller
     {
         private readonly AppDbContext _dbContext;
