@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  xtlab-mssql:
+    container_name: sqlserver-xtlab
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    volumes:
+      - mssqlvolume:/var/opt/mssql
+    ports:
+     - 8000:1433
+    environment:
+     - ACCEPT_EULA=Y
+     - SA_PASSWORD=password@12345#
+
+
+  practiceappmvc.net:
+    image: ${DOCKER_REGISTRY-}practiceappmvcnet
+    build:
+      context: .
+      dockerfile: PracticeAppMvc.Net/Dockerfile
+
+volumes:
+    mssqlvolume:    
+        name: sqlserver-xtlab-vl
