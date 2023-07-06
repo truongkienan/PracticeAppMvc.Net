@@ -1,12 +1,18 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PracticeAppMvc.Net.Models;
+using Microsoft.Extensions.DependencyInjection;
+using PracticeAppMvc.Net.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+//builder.Services.AddDbContext<PracticeAppMvcNetContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("PracticeAppMvcNetContext") ?? throw new InvalidOperationException("Connection string 'PracticeAppMvcNetContext' not found.")));
 
 // Add services to the container.
+//builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppDbContext>(options => {
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppMvcConnectionString"));
 });
 
@@ -22,10 +28,13 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapAreaControllerRoute(
+//                 name: "dashboard",
+//                 areaName: "Dashboard",
+//                 pattern: "Dashboard/{controller=Home}/{action=Index}");
 app.MapControllerRoute(name: "dashboard", pattern: "{area:exists}/{controller=home}/{action=index}/{id?}");
+
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
