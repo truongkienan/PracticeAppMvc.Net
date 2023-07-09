@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PracticeAppMvc.Net.Models;
-using Microsoft.Extensions.DependencyInjection;
-using PracticeAppMvc.Net.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddDbContext<PracticeAppMvcNetContext>(options =>

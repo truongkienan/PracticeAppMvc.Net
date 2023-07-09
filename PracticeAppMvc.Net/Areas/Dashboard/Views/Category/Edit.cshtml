@@ -45,5 +45,9 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        var summernote = new PracticeAppMvc.Net.Models.Summernote("#Description");
+    }
+    <partial name="_Summernote" model="summernote" />
 }

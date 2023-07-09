@@ -1,0 +1,16 @@
+﻿@model PracticeAppMvc.Net.Models.Post
+
+@{
+    ViewData["Title"] = "Xoá bài viết";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Có chắc chắn xoá bài viết?</h3>
+<div>    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PostId" />
+        <input type="submit" value="Xoá" class="btn btn-danger" /> |
+        <a asp-action="Index">Danh sách bài viết</a>
+    </form>
+</div>

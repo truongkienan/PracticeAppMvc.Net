@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Dashboard\Data\**" />
+    <Content Remove="Areas\Dashboard\Data\**" />
+    <EmbeddedResource Remove="Areas\Dashboard\Data\**" />
+    <None Remove="Areas\Dashboard\Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
